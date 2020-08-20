@@ -47,6 +47,20 @@
       linkName: 'hawkeye',
       designation: 'member',
       desc: 'Member from the Origin. Also a member of Shield'
+    },{
+      name: 'SpiderMan',
+      originalName: 'Peter Parker',
+      imageUrl: 'https://www.freepngimg.com/thumb/hawkeye/6-2-hawkeye-free-png-image.png',
+      linkName: 'spider-man',
+      designation: 'member',
+      desc: 'New Member'
+    },{
+      name: 'Black Panther',
+      originalName: 'T’Challa',
+      imageUrl: 'https://www.freepngimg.com/thumb/hawkeye/6-2-hawkeye-free-png-image.png',
+      linkName: 'black-panther',
+      designation: 'member',
+      desc: 'King of Wakanda'
     }
   ];
   
@@ -96,6 +110,14 @@
 
     PAGE_MAIN.innerHTML = tmpl(Avenger);
 
+    fetch('https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/profiles/' + member + '.html', {
+      method: 'GET',
+      mode: 'cors'
+    }).then(function(res) { 
+      res.text().then(function(data) {
+        $('#detailed-description').html(data);
+      })
+    })
   }
   
   page('*', customPages);
