@@ -87,4 +87,46 @@ body.custom-page #layout-container #custom-wormhole {
   display: block;
 }
 
+#team-page .member {
+  text-decoration: none;
+}
+
+#member-profile-container {
+  padding: 34px;
+  display: flex;
+}
+
+#member-profile-container #info-container {
+  flex: 1;
+}
+
+#member-profile-container .results-loader {
+  display: block;
+}
+
+#member-profile-container h2 {
+  color: var(--text-color);
+  font-size: 40px;
+}
+
+#member-profile-container .quote {
+  transform: skew(-10deg);
+  font-size: 30px;
+  padding: 16px;
+  opacity: 0.9;
+  background: var(--dark2);
+}
+
+#member-profile-container #img-container {
+  max-width: 40%;
+}
+
+#member-profile-container #img-container img {
+  max-width: 100%;
+}
+
+body.custom-page {
+  background: var(--dark2) !important;
+}
+
 /* ---------- Avengers Theme Ends Here ------------ */
