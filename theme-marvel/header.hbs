@@ -1,0 +1,156 @@
+<div id="header-container">
+  <section class="pull-left header-section">
+    <div class="menu-container">
+      <button 
+        id            = "menu-icon" 
+        class         = "menu-trigger" 
+        menu-target   = "main-nav" 
+        role          = "button" 
+        aria-haspopup = "menu" 
+        aria-expanded = "false" >
+          {{image src="/assets/portal_v2/menu.svg" alt=(translate "portal.aria.menu") class="menu-icon" }}
+          {{image src="/assets/portal_v2/menu-white.svg" alt=(translate "portal.aria.menu") class="menu-white" }}
+      </button>
+      <nav id="main-nav" class="menu" role="menu">
+        <div class="show-on-mobile page-title">
+          {{image src=portal.logo alt=(concat portal.name " " (translate "portal.aria.logo")) class="portal-logo" }} <h1 class="portal-name">{{portal.name}}</h1> 
+        </div>
+        <div class="main-nav-items">
+          {{#each menuitems as |menu|}}
+            <a href = "{{menu.url}}" 
+              role  = "menuitem" 
+              class = "{{menu.class}} {{menu.src}}">
+                <span>{{menu.text}}</span>
+            </a>
+          {{/each}}
+        </div>
+      </nav>
+    </div>
+  
+  
+    <a href="{{#if portal.linkback_url}}{{portal.linkback_url}}{{else}}/support/home{{/if}}" 
+      class="hide-on-mobile" aria-label="{{portal.name}} {{translate "portal.aria.logo"}}">
+        {{image src=portal.logo alt="" class="portal-logo" }}
+    </a>
+    
+    <h1 class="portal-name hide-on-mobile">{{portal.name}}</h1>    
+  </section>
+
+  <section class="pull-right header-section">
+    <section id="search-header" class="hide-on-home hide-on-login-signup">
+      <form role='search' id="search-form-header">
+        <i class="ficon-search" role="presentation"></i>
+        <input 
+        type        = "search" 
+        id          = "header-search"
+        class       = "hide-on-home hide-on-login search-input"
+        placeholder = "{{translate 'portal.common.search'}}" 
+        aria-label  = "{{translate "portal.home_search_placeholder" }}" />
+      </form>
+    </section>
+
+    {{#if portal.logged_in}}
+      {{!-- New Request menu --}}
+      <div class="menu-container hide-on-home hide-on-login-signup">
+
+        <button 
+          id            = "btn-header-request"
+          class         = "btn btn-primary menu-trigger" 
+          menu-target   = "request-dropdown" 
+          aria-expanded = "false" 
+          aria-label    = "{{translate "portal.aria.request_menu"}}" 
+          aria-haspopup = "menu" 
+          aria-controls = "request-dropdown">
+          <span class="elem-inline-mid">{{translate "portal.request"}}</span>
+        </button>
+        
+        <nav role="menu" class="menu" id="request-dropdown">
+          <a href         = "/support/tickets/new"
+            role          = "menuitem" 
+            class         = "incident"
+            aria-controls = "page-main">
+              <h2>{{translate "portal.request_menu.incident_title"}}</h2>
+              <p>{{translate "portal.request_menu.incident_text"}}</p>
+          </a>
+            {{#requestmenu}}
+              {{#if show}}
+                <a href = "{{url}}"
+                  role          = "menuitem"  
+                  class         = "{{className}}"
+                  aria-controls = "page-main">
+                    <h2>{{title}}</h2>
+                    <p>{{text}}</p>
+                </a>
+              {{/if}}
+            {{/requestmenu}}
+        </nav>
+
+      </div>
+	 
+    <div class="custom-menu">
+      <a href="https://tgif.freshworks.com/" target="_blank" rel="norefferer noopener">People</a>
+      <a href="https://lighthouse.freshworks.com/spaces" target="_blank" rel="norefferer noopener">Maps</a>
+    </div>
+    {{!-- User Dropdown menu and Notifications --}}
+      {{> user_notifications}}
+      <div class="menu-container">
+        <button 
+          id            = "btn-profile-options"
+          class         = "menu-trigger" 
+          menu-target   = "user-dropdown"
+          aria-haspopup = "menu" 
+          aria-expanded = "false" 
+          aria-label    = "{{translate "portal.aria.profile_menu"}}" >
+            {{avatar name=user_info.full_name url=user_info.profile_pic class="user-profile-pic"}}
+        </button>
+
+        <div class="menu" id="user-dropdown">
+          <div class="user-profile-info">
+            <div class="user-pic-thumb">
+              {{avatar name=user_info.first_name url=user_info.profile_pic class="user-profile-pic"}}
+            </div>
+            <span>{{user_info.first_name}} {{user_info.last_name}}</span>
+          </div>
+
+          <div role="menu">
+            <a href         = "/support/profile/edit"
+              role          = "menuitem"
+              aria-controls = "page-main">
+                {{translate "portal.edit_profile"}}
+            </a>
+            {{#if portal.switch_portal}}
+            <a href         = "javascript:void(0)"
+              id            = "switch-portal"
+              role          = "menuitem" 
+              aria-controls = "page-main">
+                {{translate "portal.ask_bot_name" bot_name=portal.bot_name}}
+            </a>
+            {{/if}}
+            <a href         = "/support/announcements"
+              role          = "menuitem"
+              aria-haspopup = "dialog">
+                {{translate "portal.announcements"}}
+            </a>
+            <a href         = "/logout"
+              role          = "menuitem" 
+              aria-controls = "page-main">
+                {{translate "portal.sign_out"}}
+            </a>
+          </div>
+
+        </div>
+      </div>
+    {{else}}
+      <a href="/support/login" class="header-text btn">{{translate "portal.login"}}</a>
+      {{#if features.signup }}
+        <a href="/support/signup" class="header-text btn">{{translate "portal.signup"}}</a>
+      {{/if}}
+    {{/if}}
+  </section>
+</div>
+    
+<script>
+  $('#main-nav a').each(function() {
+    $(this).attr('data-tooltip', $(this).text());
+  });
+</script>

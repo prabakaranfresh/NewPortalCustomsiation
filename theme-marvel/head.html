@@ -1,0 +1,29 @@
+<!-- Default meta -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Stop search engine crawling -->
+<META NAME="ROBOTS" CONTENT="NOINDEX">
+<META NAME="ROBOTS" CONTENT="NOFOLLOW">
+
+
+<script type="text/x-handlebars-template" id="team-template">
+  <a href="#" id="close-custom-page">X</a>
+  <section role="region" id="team-page">
+      {{#each members}}
+       <a href="#!member/{{linkName}}" class="member {{linkName}}">
+          <div class="img-container elem-inline-mid">
+            <img src="{{imageUrl}}" />
+		  </div>
+          <div class="info elem-inline-mid">
+            <h2>{{name}}</h2>
+            <div>{{originalName}}</div>
+              {{!--<div>{{designation}}</div>--}}
+            <div>{{desc}}</div>
+          </div>
+
+    	</a>
+      {{/each}}
+  </section>
+</script>
