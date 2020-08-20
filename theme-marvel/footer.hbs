@@ -8,56 +8,48 @@
   var AVENGERS_MEMEBERS = [{
       name: 'Captain America',
       originalName: 'Steve Rogers',
-      imageUrl: 'https://lh3.googleusercontent.com/proxy/f7YsjzbKxehrSw2ZwPzDwd_js9rc6qabjb5k1-U8ywWMiF-AGppGkAHqCCujy39GLxf30wuI4kZN4gafk2WSguPf2uyLMy8zIUV74dcxCzUqOS87N24K27biIJbueIOiG32qrbRboLGVxHmOfjE',
       linkName: 'captain-america',
       designation: 'member',
       desc: 'Member from the Origin'
     },{
       name: 'Iron Man',
       originalName: 'Anthony Stark (Tony Stark)',
-      imageUrl: 'https://img.pngio.com/ironman-png-images-free-download-iron-man-hd-png-470_479.png',
       linkName: 'iron-man',
       designation: 'member',
       desc: 'Member from the Origin'
     },{
       name: 'Thor Odinson',
       originalName: 'Thor Odinson',
-      imageUrl: 'https://www.freeiconspng.com/uploads/thor-png-3.png',
       linkName: 'thor-odinson',
       designation: 'member',
       desc: 'Member from the Origin, God of Lightning. Originally from Asgard'
     },{
       name: 'Hulk',
       originalName: 'Dr. Robert Bruce Banner',
-      imageUrl: 'https://i.pinimg.com/originals/29/cb/5d/29cb5d753b7ff496d0cdc77582c6d83e.png',
       linkName: 'hulk',
       designation: 'member',
       desc: 'Member from the Origin, Strongest Avenger'
     },{
       name: 'Black Widow',
       originalName: 'Natasha Romanoff',
-      imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dddb8beb-7509-4c66-bc59-5e64fc25d614/dc6rvwg-842d8513-eea5-4e9d-b642-1bff242e2272.png/v1/fill/w_741,h_1078,strp/natasha_romanoff___png_1123x1633_by_sachso74_dc6rvwg-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMzA5IiwicGF0aCI6IlwvZlwvZGRkYjhiZWItNzUwOS00YzY2LWJjNTktNWU2NGZjMjVkNjE0XC9kYzZydndnLTg0MmQ4NTEzLWVlYTUtNGU5ZC1iNjQyLTFiZmYyNDJlMjI3Mi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.HRX3Pw-MOeudBmJJZdXk-yZi7u0fqpaaHyJlsm4UCEY',
       linkName: 'black-widow',
       designation: 'member',
       desc: 'Member from the Origin. Also a member of Shield'
     },{
       name: 'Hawkeye',
       originalName: 'Clinton Francis "Clint" Barton',
-      imageUrl: 'https://www.freepngimg.com/thumb/hawkeye/6-2-hawkeye-free-png-image.png',
       linkName: 'hawkeye',
       designation: 'member',
       desc: 'Member from the Origin. Also a member of Shield'
     },{
       name: 'SpiderMan',
       originalName: 'Peter Parker',
-      imageUrl: 'https://www.freepngimg.com/thumb/hawkeye/6-2-hawkeye-free-png-image.png',
       linkName: 'spider-man',
       designation: 'member',
       desc: 'New Member'
     },{
       name: 'Black Panther',
       originalName: 'T’Challa',
-      imageUrl: 'https://www.freepngimg.com/thumb/hawkeye/6-2-hawkeye-free-png-image.png',
       linkName: 'black-panther',
       designation: 'member',
       desc: 'King of Wakanda'
@@ -110,7 +102,7 @@
 
     PAGE_MAIN.innerHTML = tmpl(Avenger);
 
-    fetch('https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/profiles/' + member + '.html', {
+    fetch(BASE_ASSET_URL + '/profiles/' + member + '.html', {
       method: 'GET',
       mode: 'cors'
     }).then(function(res) { 

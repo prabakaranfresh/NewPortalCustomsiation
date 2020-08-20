@@ -7,6 +7,15 @@
 <META NAME="ROBOTS" CONTENT="NOINDEX">
 <META NAME="ROBOTS" CONTENT="NOFOLLOW">
 
+<script>
+  var BASE_ASSET_URL = 'https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel';
+
+  window.addEventListener('DOMContentLoaded', function() {
+    Handlebars.registerHelper('baseAssetUrl', function(options){
+      return BASE_ASSET_URL;
+    });
+  });
+</script>
 
 <script type="text/x-handlebars-template" id="team-template">
   <a href="#" id="close-custom-page">X</a>
@@ -15,7 +24,7 @@
       <a href="#!member/{{linkName}}" class="member {{linkName}}">
         <div class="img-container elem-inline-mid">
           <img
-            src="https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/images/{{linkName}}.png" />
+            src="{{baseAssetUrl}}/images/{{linkName}}.png" />
         </div>
         <div class="info elem-inline-mid">
           <h2>{{name}}</h2>
@@ -31,7 +40,7 @@
 <script type="text/x-handlebars-template" id="team-member-template">
   <article id="member-profile-container" class="page-wrapper">
     <div id="img-container">
-      <img src="https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/images/{{linkName}}.png"/>
+      <img src="{{baseAssetUrl}}/images/{{linkName}}.png"/>
     </div>
     <div id="info-container">
       <h2>{{name}}</h2>
