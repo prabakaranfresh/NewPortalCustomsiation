@@ -11,19 +11,35 @@
 <script type="text/x-handlebars-template" id="team-template">
   <a href="#" id="close-custom-page">X</a>
   <section role="region" id="team-page">
-      {{#each members}}
-       <a href="#!member/{{linkName}}" class="member {{linkName}}">
-          <div class="img-container elem-inline-mid">
-            <img src="{{imageUrl}}" />
-		  </div>
-          <div class="info elem-inline-mid">
-            <h2>{{name}}</h2>
-            <div>{{originalName}}</div>
-              {{!--<div>{{designation}}</div>--}}
-            <div>{{desc}}</div>
-          </div>
-
-    	</a>
-      {{/each}}
+    {{#each members}}
+      <a href="#!member/{{linkName}}" class="member {{linkName}}">
+        <div class="img-container elem-inline-mid">
+          <img
+            src="https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/images/{{linkName}}.png" />
+        </div>
+        <div class="info elem-inline-mid">
+          <h2>{{name}}</h2>
+          <div>{{originalName}}</div>
+          <div>{{desc}}</div>
+        </div>
+      </a>
+    {{/each}}
   </section>
+</script>
+
+
+<script type="text/x-handlebars-template" id="team-member-template">
+  <article id="member-profile-container" class="page-wrapper">
+    <div id="img-container">
+      <img src="https://raw.githubusercontent.com/prabakaranfresh/NewPortalCustomsiation/master/theme-marvel/images/{{linkName}}.png"/>
+    </div>
+    <div id="info-container">
+      <h2>{{name}}</h2>
+      <p>{{originalName}}</p>
+      <p>{{desc}}</p>
+      <div id="detailed-description">
+        {{>loader}}{{>loader}}
+      </div>
+    </div>
+  </article>
 </script>

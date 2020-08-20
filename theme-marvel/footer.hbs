@@ -5,7 +5,7 @@
 <script>
   var CustomPageDOMSrc = document.getElementById('custom-wormhole');
   
-  var teamMembers = [{
+  var AVENGERS_MEMEBERS = [{
       name: 'Captain America',
       originalName: 'Steve Rogers',
       imageUrl: 'https://lh3.googleusercontent.com/proxy/f7YsjzbKxehrSw2ZwPzDwd_js9rc6qabjb5k1-U8ywWMiF-AGppGkAHqCCujy39GLxf30wuI4kZN4gafk2WSguPf2uyLMy8zIUV74dcxCzUqOS87N24K27biIJbueIOiG32qrbRboLGVxHmOfjE',
@@ -78,7 +78,7 @@
     var tmplContent = document.getElementById('team-template').innerHTML;
     var tmpl = Handlebars.compile(tmplContent);
     CustomPageDOMSrc.innerHTML = tmpl({
-      members: teamMembers
+      members: AVENGERS_MEMEBERS
     });
   }
   
@@ -86,8 +86,17 @@
     DOC_BODY.classList.remove('custom-page');
     DOC_BODY.setAttribute('page', 'custom');
     CustomPageDOMSrc.innerHTML = '';
-    PAGE_MAIN.innerHTML = '<br/><center style="color:var(--text-color);">Team Member ' + member + '!!!<br/><br/>This page is under construction</center>';
+
+    var tmplContent = document.getElementById('team-member-template').innerHTML;
+    var tmpl = Handlebars.compile(tmplContent);
+
+    var Avenger = AVENGERS_MEMEBERS.filter(function(avngr){
+      return avngr.linkName === member
+    })[0];
+
+    PAGE_MAIN.innerHTML = tmpl(Avenger);
+
   }
   
-  page('*', customPages)
+  page('*', customPages);
 </script>
