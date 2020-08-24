@@ -86,6 +86,8 @@
     CustomPageDOMSrc.innerHTML = tmpl({
       members: AVENGERS_MEMEBERS
     });
+
+    document.getElementsByTagName('html')[0].scrollTop = 0;
   }
   
   function renderTeamMember(member) {

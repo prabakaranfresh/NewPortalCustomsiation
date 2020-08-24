@@ -1,3 +1,8 @@
+/* 
+  DO NOT USE AS EXTERNAL STYLE
+  COPY AND PASTE THIS CSS INTO FS CUSTOM STYLESHEET
+*/
+
 :root {
   --full-dark: #ffffff;
   --full-dark2: #ffffff90;
@@ -8,9 +13,10 @@
   --link-color: #2C5CC5;
   --search-bg: #F5F7F9;
   --li-bg: #ffffff;
-  --hero-bg: url(https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
   --body-bg: #EBEFF3;
   --banner-bg: #CCCCCC50;
+  --dark2: #CCCCCC;
+  --hero-linear-bg: linear-gradient(to bottom, transparent, #FFFFFF);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,10 +30,10 @@
     --link-color: #eeeeee;
     --search-bg: #202026;
     --li-bg: #222831;
-    --hero-bg: url(https://images.unsplash.com/photo-1548092372-6fa982d00458?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
     --body-bg: #6b6b6b;
     --dark2: #121a27;
     --banner-bg: #6b6b6b;
+    --hero-linear-bg: linear-gradient(to bottom, transparent, #000000);
   }
 }
 
@@ -57,9 +63,46 @@ body #search-layout-container.show #search-overlay {
   background: var(--search-bg);
 }
 
-body[page='portal_home'] main#page-main #hero-banner {
-  background-image: var(--hero-bg);
-  background-position: 30% center;
+body {
+  font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+section#hero-banner:before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 392px;
+  background-image: var(--hero-linear-bg);
+  opacity: .6;
+}
+
+#home-page-container #hero-banner .hero-banner-container {
+  display: grid;
+  width: 85%;
+  margin: auto;
+  height: 356px !important;
+  padding: 12px !important;
+  padding-top: 120px !important;
+  grid-template-columns: 40% 40%;
+  grid-gap: 20%;
+}
+
+#banner-search #search-form,
+#banner-search #search-form input {
+  width: 100%;
+}
+
+.hero-banner-container h2,
+.hero-banner-container p {
+  color: var(--text-color);
+}
+
+#page-main section#hero-banner {
+  background-image: url(https://terrigen-cdn-dev.marvel.com/content/prod/1x/001avn_ons_mas_dsk_01_0.jpg) !important;
+  height: 484px;
 }
 
 #header-main #main-nav {
@@ -95,7 +138,7 @@ body[page='portal_home'] main#page-main #hero-banner {
 }
 
 #header-main #main-nav .main-nav-items a:hover:before {
-  color: var(--rev-text-color);
+  color: black;
   opacity: 1;
 }
 
@@ -163,6 +206,11 @@ h1 {
   color: var(--text-color) !important;
 }
 
+.hero-banner-container h2,
+.announcement-title {
+  color: var(--text-color);
+}
+
 @media (prefers-color-scheme: dark) {
 
   input[type="text"],
@@ -189,10 +237,6 @@ h1 {
   .link:active {
     color: var(--link-color);
     text-decoration: underline;
-  }
-
-  .announcement-title {
-    color: var(--text-color);
   }
 
   .side-modal .modal-content {
@@ -236,11 +280,19 @@ h1 {
   #home-page-container {
     background: var(--full-dark2);
   }
+}
 
-  #home-page-container a.card {
-    background: var(--medium-dark) !important;
-    color: var(--text-color) !important;
-  }
+#home-page-container a.card {
+  background: var(--medium-dark) !important;
+  color: var(--text-color) !important;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+#home-page-container a.card:hover {
+  text-decoration: none;
+  transform: scale(1.05);
 }
 
 @media (prefers-color-scheme: light) {

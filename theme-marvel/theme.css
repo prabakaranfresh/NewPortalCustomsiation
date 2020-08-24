@@ -1,3 +1,8 @@
+/* 
+  DO NOT USE AS EXTERNAL STYLE
+  COPY AND PASTE THIS CSS INTO FS CUSTOM STYLESHEET
+*/
+
 /* ---------- Avengers Theme Starts Here --------- */
 
 #team-banner {
@@ -30,7 +35,7 @@
 
 #team-page {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   grid-gap: 24px;
   padding: 24px;
 }
@@ -38,10 +43,14 @@
 #team-page .member {
   padding: 24px;
   background: var(--full-dark);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
 }
 
 #team-page .img-container {
   width: 190px;
+  text-align: center;
 }
 
 #team-page img {
@@ -111,10 +120,11 @@ body.custom-page #layout-container #custom-wormhole {
 
 #member-profile-container .quote {
   transform: skew(-10deg);
-  font-size: 30px;
+  font-size: 18px;
   padding: 16px;
   opacity: 0.9;
   background: var(--dark2);
+  border-radius: 4px;
 }
 
 #member-profile-container #img-container {
