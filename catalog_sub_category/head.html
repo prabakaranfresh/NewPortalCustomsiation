@@ -1,0 +1,58 @@
+<script type="text/x-handlebars-template" id="tmpl_category_list">
+
+  {{#* inline 'category_item'}}
+    <li class="{{#if selected}}active{{/if}} {{#if child}}parent-category{{/if}}">
+      <span class="icon" role="presentation"></span>
+      <a href="{{@root.page_urls.catalog_item_show}}?category_id={{id}}{{#if child}}&isParent=true&level={{level}}{{/if}}"
+        data-id="{{id}}" class="category" title="{{name}}" {{#if child}} data-parent="true" {{/if}}>
+        {{{name}}}
+        <i class="ficon-chevron-bottom" role="presentation"></i>
+      </a>
+      {{#if child}}
+        <ul class="sub-category">
+          {{#child}}
+            {{> category_item this level=(add ../level 1)}}
+          {{/child}}
+        </ul>
+      {{/if}}
+    </li>
+    {{/inline}}
+
+    <li {{#eq selectedCategory 0}}class="active" aria-current="true" {{/eq}}>
+      <a href="/support/catalog/items" data-id="0" class="ellipsis category">
+        {{translate "portal.catalog.all_items"}}
+        <i class="ficon-chevron-right" role="presentation"></i>
+      </a>
+    </li>
+
+    {{#categories}}
+      {{> category_item this level=0}}
+    {{/categories}}
+</script>
+
+<script type="text/x-handlebars-template" id="tmpl_category_select">
+  {{#* inline 'opt'}}
+    <option value="{{id}}-{{name}}" data-id="{{id}}" {{#if child}}data-parent="true" {{/if}}>
+      {{selectLevelSpace level}}{{{name}}}</option>
+    {{#child}} {{> opt this level=(add ../level 1)}} {{/child}}
+    {{/inline}}
+
+    <select id="categories-list-select">
+      <option value="0" data-id="0">
+        {{translate "portal.catalog.all_items"}}
+      </option>
+      {{#categories}} {{> opt this level=0}} {{/categories}}
+    </select>
+</script>
+
+<script type="text/x-handlebars-template" id="tmpl_catalog_category_items">
+  <div class="sub-category-container">
+    <h3><a href="/support/catalog/items?category_id={{category_id}}" class="link">{{{name}}}</a></h3>
+    <div class="list-items-subcategory">
+      {{> catalog_items}}
+    </div>
+    {{#if view_all}}
+      <a href="/support/catalog/items?category_id={{category_id}}" class="link">View all</a>
+    {{/if}}
+  </div>
+</script>
