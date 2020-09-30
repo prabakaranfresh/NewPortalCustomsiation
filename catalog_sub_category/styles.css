@@ -1,0 +1,73 @@
+/* Service Catalog List | Category - Sub Category style begins */
+
+#catalog-list-page #catalog-list-categories #categories-list ul.sub-category {
+  margin-left: 12px;
+  padding-left: 12px;
+  display: none;
+}
+
+#catalog-list-page #catalog-list-categories #categories-list li.active>ul.sub-category {
+  display: block;
+}
+
+#layout-container #catalog-list-page #catalog-list-categories #categories-list li.active {
+  background: none
+}
+
+#layout-container #catalog-list-page #catalog-list-categories #categories-list li.active a {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  background-color: inherit;
+}
+
+#layout-container #catalog-list-page #catalog-list-categories #categories-list li.active>a {
+  color: #2C5CC5;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #F5F7F9;
+  position: relative;
+}
+
+#categories-list ul.sub-category>li {
+  list-style: none;
+}
+
+#catalog-list-page #catalog-list-categories #categories-list li.active>ul.sub-category {
+  display: block;
+  overflow-y: hidden
+}
+
+#categories-list ul.sub-category .icon {
+  position: absolute;
+  left: -15px;
+  top: -25px;
+  height: 50px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAeCAQAAAClQKc1AAAAE0lEQVQYV2M4858BAUY59OQgIAA3nj7C66R89wAAAABJRU5ErkJggg==);
+  background-size: 10px;
+}
+
+/* Sub category List items */
+
+#list-category span.ficon-arrow-right {
+  margin: 0 8px;
+}
+
+.sub-category-container {
+  flex: 100%;
+  padding-left: 12px;
+}
+
+.list-items-subcategory {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#catalog-list-page #catalog-list-container #catalog-list-items #list-items.parent-list>a {
+  display: none;
+}
+
+/* Service Catalog List | Category - Sub Category style ends */
