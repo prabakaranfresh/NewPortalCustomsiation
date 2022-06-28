@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'ProximaNova';
+    font-weight: lighter;
+    src:  url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-ThinWeb.woff') format('woff2'),
+          url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-ThinWeb.eot') format('eot');
+  }
+  @font-face {
+    font-family: 'ProximaNova';
+    font-weight: normal;
+    src:  url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-RegularWeb.woff') format('woff2'),
+          url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-RegularWeb.eot') format('eot');
+  }
+  @font-face {
+    font-family: 'ProximaNova';
+    font-weight: bold;
+    src:  url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-BoldWeb.woff') format('woff2'),
+          url('https://www.pacificdentalservices.com/content/dam/freshworks/fonts/ProximaNova-BoldWeb.eot') format('eot');
+  }
